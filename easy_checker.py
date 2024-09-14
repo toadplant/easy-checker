@@ -31,8 +31,9 @@ if source:
                 **Definition**: {length_check(len(response["definition"]))} characters  
         """)
         with st.expander("Copy everything", expanded=False, icon=None):
-            copy = f"""# Name: {response["name"]}\nLink: https://character.ai/chat/{externalId}\nCreator: {response["user__username"]}\nTagline: {response["title"]}\n---\n# Greeting:\n{response["greeting"]}\n# Description:\n{response["description"]}\n# Definition:\n{response["definition"]}\n
-                """
+            copy = f"""# Name: {response["name"]}\nLink: https://character.ai/chat/{externalId}\nCreator: {response["user__username"]}\nTagline: {response["title"]}\n---\n# Greeting:\n{response["greeting"]}\n\n# Description:\n{response["description"]}\n\n# Definition:\n{response["definition"]}\n"""
+            st.markdown("""[:writing_hand: Create Google Doc](https://doc.new) | [:memo: Open Quillbot](https://quillbot.com/grammar-check)"""
+            )
             st.code(copy, language='markdown', wrap_lines=False)
     st.text_area(f"GREETING, {len(response["greeting"])}", value=response["greeting"], height=350)
     st.text_area(f"DESCRIPTION, {len(response["description"])}", value=response["description"], height=180)
